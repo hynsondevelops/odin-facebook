@@ -35,7 +35,7 @@ end
 
 
 #Posts
-Post.create!(body: "This is a sample post body", poster_id: 6)
+Post.create!(body: "This is a sample post body", poster_id: 2)
 Post.create!(body: "This is a sample post body", poster_id: 8)
 Post.create!(body: "This is a sample post body", poster_id: 1)
 

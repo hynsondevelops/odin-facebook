@@ -39,4 +39,23 @@ class User < ApplicationRecord
 		return (feedPosts + created_posts)	
 	end
 
+	def allPendingRequests
+		return (sent_friend_request_users + recieved_friend_request_users)
+	end
+
+
+	def notFriendsOrRequested(cur_user)
+		print("hi")
+		allRelatedUsers = allPendingRequests + friends
+		allRelatedUsers.push(cur_user)
+		allUsers = User.all
+		nonIncludedUsers = []
+		allUsers.each do |user|
+			if (!allRelatedUsers.include?(user))
+				nonIncludedUsers.push(user)
+			end
+		end
+		return nonIncludedUsers
+	end
+
 end

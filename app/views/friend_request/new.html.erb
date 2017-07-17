@@ -1,0 +1,7 @@
+<p> HERE IS THE FORM BELOW </p>
+<%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
+	<%= f.label :friended_id %>
+	<%= f.hidden_field :friended_id, :value => @avail.id %>
+	<%= f.submit "Submit" %>
+<% end %>
+

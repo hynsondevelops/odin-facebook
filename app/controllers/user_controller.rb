@@ -28,10 +28,7 @@ class UserController < ApplicationController
 	end
 
 	def index
-		@users = User.all
-		@signed_in = current_user
-		@friend_requests = @signed_in.recieved_friend_requests
-		@friends = @signed_in.friends
-		@feed = @signed_in.feed
+		@availableUsers = current_user.notFriendsOrRequested(current_user)
+		@friendRequest = FriendRequest.new
 	end
 end

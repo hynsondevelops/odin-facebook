@@ -16,10 +16,11 @@
 	  	      <a class="navbar-brand" href="#">FakeBook</a>
 	  	    </div>
 	  	    <ul class="nav navbar-nav">
-	  	      <li class="active"><a href="/user/2">Home</a></li>
+	  	      <li class="active"><a href="/user/">Home</a></li>
 	  	      <li><a href="#">Page 1</a></li>
 	  	      <li><a href="#">Page 2</a></li>
-	  	      <li><a href="#">Friend Requests: <%= @friend_requests.size %> </a></li>
+	  	      <li><a href="#">Friend Requests: <%= current_user.recieved_friend_requests.size %> </a></li>
+	  	      <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
 	  	    </ul>
 	  	  </div>
 	  	</nav>

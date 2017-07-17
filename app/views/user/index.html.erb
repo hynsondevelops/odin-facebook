@@ -1,34 +1,10 @@
-
-<h1> <%= @signed_in.email %> </h1>
-<p> Hello, signed in user: <%= @signed_in.email %></p>
-<h3> Friend List </h3>
-<% @signed_in.friends.each do |friend| %>
-	<p> Name: <%= friend.first_name %> <%= friend.last_name %> </p>
-	<p> Email: <%= friend.email %> </p>
-
-<% end %>
-<p> Friend Requests </p>
-<% if @friend_requests.size == 0 %>
-	<p> No friends :( </p>
-<% end %>
-<% @friend_requests.each do |request| %>
-	<p> Name: <%= request.friender.first_name %> <%= request.friender.last_name %>  </p>
-<% end %>
-
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-
-<div> 
-  <% @feed.each do |post| %>
-    <div>
-      <p> Post </p>
-      <p> <%= post.body %> </p>
-      <p> By <%= post.poster.first_name %> <%= post.poster.last_name %> </p>
-      <% post.likers.each do |liker| %>
-        <p> Liked by: <%= liker.first_name %> <%= post.poster.last_name %> </p>
-      <% end %>
-      <% post.comments.each do |comment| %>
-        <p> Comment: <%= comment.body %> by <%= comment.post.poster.first_name %> <%= comment.post.poster.last_name %> 
-      <% end %>
-    </div>
+<% @availableUsers.each do |user| %>
+  <p> <%= user.first_name %> <%= user.last_name %> </p>
+  <%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
+    <%= f.label :friended_id %>
+    <%= f.hidden_field :friended_id, :value => user.id %>
+    <%= f.submit "Submit" %>
   <% end %>
-</div>
+
+ 
+<% end %>

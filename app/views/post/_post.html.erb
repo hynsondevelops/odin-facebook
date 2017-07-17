@@ -1,0 +1,11 @@
+<div class = "post_box">
+	<p> FORM </p>
+  <p> <%= post.body %> </p>
+  <p> By <%= post.poster.first_name %> <%= post.poster.last_name %> </p>
+  <% post.likers.each do |liker| %>
+    <p> Liked by: <%= liker.first_name %> <%= post.poster.last_name %> </p>
+  <% end %>
+  <% post.comments.each do |comment| %>
+    <p> Comment: <%= comment.body %> by <%= comment.post.poster.first_name %> <%= comment.post.poster.last_name %> 
+  <% end %>
+</div>
