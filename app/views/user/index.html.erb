@@ -1,10 +1,15 @@
 <% @availableUsers.each do |user| %>
-  <p> <%= user.first_name %> <%= user.last_name %> </p>
+  <% if (current_user.recieved_friend_request_users.include?(user)) %>
+  <%= form_for(@friendRequest, url: {controller: :friend_request, action: :update, id: 1}, method: "patch") do |f| %>
+    <%= f.label :friender_id %>
+    <%= f.hidden_field :friender_id, :value => user.id %>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% else %>
   <%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
     <%= f.label :friended_id %>
     <%= f.hidden_field :friended_id, :value => user.id %>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Accept?" %>
   <% end %>
-
- 
+<% end %>
 <% end %>

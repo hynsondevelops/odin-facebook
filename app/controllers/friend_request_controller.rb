@@ -17,7 +17,9 @@ class FriendRequestController < ApplicationController
 	end
 
 	def update
-	
+		@friendRequest = FriendRequest.find_by(friender_id: params[:friend_request][:friender_id], friended_id: current_user.id)
+		@friendRequest.update_attributes(accepted: true)
+		redirect_to user_index_path
 	end
 
 	def index
