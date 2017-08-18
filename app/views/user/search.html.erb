@@ -1,0 +1,9 @@
+<% if (@users.length == 0) %>
+	<p> Sorry, no results. </p>
+<% else %>
+	<% @users.each do |friend| %>
+		<p> Name: <%= friend.first_name %> <%= friend.last_name %> </p>
+		<p> Email: <%= friend.email %> </p>
+
+	<% end %>
+<% end %>

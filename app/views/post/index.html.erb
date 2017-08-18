@@ -1,5 +1,4 @@
-<h1> <%= @signed_in.email %> </h1>
-<p> Hello, signed in user: <%= @signed_in.email %></p>
+<h1> Welcome to Fakebook, <%= @signed_in.first_name %></h1>
 <h3> Friend List </h3>
 <% @signed_in.friends.each do |friend| %>
 	<p> Name: <%= friend.first_name %> <%= friend.last_name %> </p>

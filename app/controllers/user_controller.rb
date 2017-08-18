@@ -31,4 +31,15 @@ class UserController < ApplicationController
 		@availableUsers = current_user.notFriendsOrRequested(current_user)
 		@friendRequest = FriendRequest.new
 	end
+
+	def search
+		@users = []
+		allUsers = User.all
+		allUsers.each do |user|
+			if (user.first_name.downcase == params[:search].downcase || user.last_name.downcase == params[:search].downcase)
+				@users.push(user)
+			end
+		end
+	end
+
 end
