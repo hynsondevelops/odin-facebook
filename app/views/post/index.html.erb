@@ -1,20 +1,25 @@
 <h1> Welcome to Fakebook, <%= @signed_in.first_name %></h1>
 <h3> Friend List </h3>
-<% @signed_in.friends.each do |friend| %>
-	<p> Name: <%= friend.first_name %> <%= friend.last_name %> </p>
-	<p> Email: <%= friend.email %> </p>
+<div id = "friendList">
+	<% @signed_in.friends.each do |friend| %>
+		<p> Name: <%= friend.first_name %> <%= friend.last_name %> </p>
+		<p> Email: <%= friend.email %> </p>
 
-<% end %>
-<p> Friend Requests </p>
-<% if @friend_requests.size == 0 %>
-	<p> No friends :( </p>
-<% end %>
-<% @friend_requests.each do |request| %>
-	<p> Name: <%= request.friender.first_name %> <%= request.friender.last_name %>  </p>
-<% end %>
+	<% end %>
+</div>
 
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<div id = "friendRequestsBox">
+	<p> Friend Requests </p>
+	<% if @friend_requests.size == 0 %>
+		<p> No friends :( </p>
+	<% end %>
+	<% @friend_requests.each do |request| %>
+		<p> Name: <%= request.friender.first_name %> <%= request.friender.last_name %>  </p>
+	<% end %>
+</div>
 
-<% @feed.each do |cur_post| %>
-  <%= render "post", post: cur_post %>
-<% end %>
+<div id = "feed">
+	<% @feed.each do |cur_post| %>
+	  <%= render "post", post: cur_post %>
+	<% end %>
+</div>

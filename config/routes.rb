@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :friend_request
   root to: 'user#index'
   get '/search', to: 'user#search'
+  get '/requests', to: 'user#requests'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

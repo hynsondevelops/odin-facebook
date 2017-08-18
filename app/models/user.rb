@@ -45,7 +45,6 @@ class User < ApplicationRecord
 
 
 	def notFriendsOrRequested(cur_user)
-		print("hi")
 		allRelatedUsers = sent_friend_request_users + friends
 		allRelatedUsers.push(cur_user)
 		allUsers = User.all
@@ -55,7 +54,7 @@ class User < ApplicationRecord
 				nonIncludedUsers.push(user)
 			end
 		end
-		return nonIncludedUsers
+		return [nonIncludedUsers, allRelatedUsers]
 	end
 
 end

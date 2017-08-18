@@ -27,8 +27,13 @@ class UserController < ApplicationController
 		redirect_to @user
 	end
 
-	def index
+	def requests
 		@availableUsers = current_user.notFriendsOrRequested(current_user)
+		@friendRequest = FriendRequest.new
+	end
+
+	def index
+		@users = current_user.notFriendsOrRequested(current_user)
 		@friendRequest = FriendRequest.new
 	end
 

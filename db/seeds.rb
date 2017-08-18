@@ -38,6 +38,16 @@ end
 Post.create!(body: "This is a sample post body", poster_id: 2)
 Post.create!(body: "This is a sample post body", poster_id: 8)
 Post.create!(body: "This is a sample post body", poster_id: 1)
+Post.create!(body: "This is another sample post body", poster_id: 1)
+Post.create!(body: "This is another sample post body", poster_id: 5)
+Post.create!(body: "This is another sample post body", poster_id: 7)
+Post.create!(body: "This is another sample post body", poster_id: 2)
+Post.create!(body: "This is another sample post body", poster_id: 8)
+
+
+
+
+
 
 #LikedPosts
 LikedPost.create!(post_id: 1, liker_id: 1)

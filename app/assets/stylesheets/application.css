@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+
+#friendRequestsBox
+{
+	width: 400px;
+	float: right;
+	border: 1px black dotted;
+}
+
+#friendList
+{
+	text-align: center;
+	width: 300px;
+	float: left;
+	border: 1px black dotted;
+}
+
+#feed
+{
+	width: 50%;
+	float:left;
+	margin: 50px;
+	border: 1px black dotted;	
+}
+
+
+.post_box {
+	border-style: solid;
+	border-width: 1px;
+	margin: 50px;
+}
