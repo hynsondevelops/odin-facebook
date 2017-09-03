@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#sendgrid for emails
+gem 'sendgrid-ruby'
 #figaro for app_id and app_secret for omniauth facebook
 gem 'figaro'
 #facebook sign in
