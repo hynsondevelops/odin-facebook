@@ -1,0 +1,12 @@
+<div class = "pendingRequest">
+  <div class = "profilePicture">
+    <%= image_tag user.avatar.url(:thumb) %>
+  </div>
+  <div class = "profileName">
+    <%= user.first_name %> <%= user.last_name %>
+  </div>
+	<%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
+		<%= f.hidden_field :friended_id, :value => user.id %>
+		<%= f.submit "Send Request" %>
+	<% end %>
+</div>

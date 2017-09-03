@@ -1,0 +1,26 @@
+<div class = "pendingRequest">
+  <div class = "profilePicture">
+    <%= image_tag user.avatar.url(:thumb) %>
+  </div>
+  <div class = "profileName">
+    <%= user.first_name %> <%= user.last_name %>
+  </div>
+  <% if (current_user.recieved_friend_request_users.include?(user)) %>
+    <%= form_for(@friendRequest, url: {controller: :friend_request, action: :update, id: 1}, method: "patch") do |f| %>
+      <%= f.hidden_field :friender_id, :value => user.id %>
+      <%= f.submit "Confirm" %>
+    <% end %>
+  <% elsif (current_user.friends.include?(user) || current_user.sent_friend_request_users.include?(user)) %>
+    <%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
+      <%= f.hidden_field :friended_id, :value => user.id %>
+      <%= f.submit "Send Request" %>
+    <% end %>
+  <% else %>
+    <%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
+      <%= f.hidden_field :friended_id, :value => user.id %>
+      <%= f.submit "Send Request" %>
+    <% end %>
+  <% end %>
+</div>
+
+

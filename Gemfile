@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#figaro for app_id and app_secret for omniauth facebook
+gem 'figaro'
+#facebook sign in
+gem 'omniauth-facebook'
+#images
+gem "paperclip", "~> 5.0.0"
 #bootstrap
 gem 'bootstrap-sass', '3.3.6'
 #For navbar

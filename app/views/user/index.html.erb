@@ -1,20 +1,18 @@
+<h3> NEW stuff </h3>
+<h3> Friends </h3>
 <% @users[0].each do |user| %>
-  <% if (current_user.recieved_friend_request_users.include?(user)) %>
-    <%= form_for(@friendRequest, url: {controller: :friend_request, action: :update, id: 1}, method: "patch") do |f| %>
-      <%= f.label :friender_id %>
-      <%= f.hidden_field :friender_id, :value => user.id %>
-      <%= f.submit "Submit" %>
-    <% end %>
-  <% else %>
-    <%= form_for(@friendRequest, url: {controller: :friend_request, action: :create}) do |f| %>
-      <%= f.label :friended_id %>
-      <%= f.hidden_field :friended_id, :value => user.id %>
-      <%= f.submit "Accept?" %>
-    <% end %>
-  <% end %>
-<% end %>   
-
-<% @users[1].each do |user| %>
-  <p> Name: <%= user.first_name %> <%= user.last_name %> </p>
-  <p> Email: <%= user.email %> </p>
+  <%= render partial: "show", locals: {user: user} %>
 <% end %>
+
+<h3> Acceptable Requests </h3>
+<% @users[2].each do |user| %>
+  <%= render partial: "friend_request/acceptableRequest", locals: {user: user} %>
+<% end %>
+
+
+<h3> Sendable Requests </h3>
+<% @users[3].each do |user| %>
+  <%= render partial: "friend_request/sendableRequest", locals: {user: user} %>
+<% end %>
+
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>

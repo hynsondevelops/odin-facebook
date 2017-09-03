@@ -28,12 +28,12 @@ class UserController < ApplicationController
 	end
 
 	def requests
-		@availableUsers = current_user.notFriendsOrRequested(current_user)
+		@users = current_user.sortUserRelations
 		@friendRequest = FriendRequest.new
 	end
 
 	def index
-		@users = current_user.notFriendsOrRequested(current_user)
+		@users = current_user.sortUserRelations
 		@friendRequest = FriendRequest.new
 	end
 

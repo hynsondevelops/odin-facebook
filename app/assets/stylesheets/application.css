@@ -44,3 +44,24 @@
 	border-width: 1px;
 	margin: 50px;
 }
+
+.pendingRequest
+{
+	display: inline-block;
+	width: auto;
+	border: 2px black solid;
+	white-space: nowrap;
+	margin: 10px;
+}
+
+.profilePicture
+{
+	display: inline;
+}
+
+.profileName
+{
+	margin: 5px;
+	display: inline;
+	white-space: nowrap;
+}

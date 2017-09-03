@@ -1,9 +1,13 @@
 <% if (@users.length == 0) %>
 	<p> Sorry, no results. </p>
 <% else %>
-	<% @users.each do |friend| %>
-		<p> Name: <%= friend.first_name %> <%= friend.last_name %> </p>
-		<p> Email: <%= friend.email %> </p>
+	<% @users.each do |user| %>
+		<div class = "profilePicture">
+		  <%= image_tag user.avatar.url(:thumb) %>
+		</div>
+		<div class = "profileName">
+		  <%= user.first_name %> <%= user.last_name %>
+		</div>
 
 	<% end %>
 <% end %>
